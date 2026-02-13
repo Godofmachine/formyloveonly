@@ -5,6 +5,10 @@ import { CONFIG } from '../constants/config'
 import { cn } from '../lib/utils'
 import { Lock, Unlock, Heart, Hand, Loader2 } from 'lucide-react'
 
+// Obfuscated keys for local storage
+const AUTH_TOKEN_KEY = "v8s2_k9p_token"
+const AUTH_TOKEN_VALUE = "c7a8b9d0e1f2g3h4i5j6k7l8m9n0o1p2"
+
 // Updated questions list
 const QUESTIONS = [
     { id: 'firstName', label: "First things first, what is your first name?", placeholder: "Your first name..." },
@@ -41,9 +45,10 @@ export const Auth = () => {
 
         if (currentQuestion.id === 'jciCreed') {
             // Validate Creed
-            const isCorrect = creedInputs.every((input, index) =>
-                input.toLowerCase().trim() === CONFIG.creedAnswers[index].toLowerCase()
-            )
+            const isCorrect = creedInputs.every((input, index) => {
+                const encodedInput = btoa(input.toLowerCase().trim())
+                return encodedInput === CONFIG.creedAnswers[index]
+            })
 
             if (isCorrect) {
                 if (currentQuestionIndex < QUESTIONS.length - 1) {
@@ -81,17 +86,20 @@ export const Auth = () => {
         const key = currentQuestion.id as keyof typeof CONFIG.validAnswers
         const validAnswers = CONFIG.validAnswers[key]
 
-        // Normalize string: lowercase and remove special chars if needed
-        const normalize = (str: string) => str.toLowerCase().trim()
+        if (validAnswers) {
+            const encodedAnswer = btoa(answer.toLowerCase().trim())
 
-        if (validAnswers && validAnswers.some(v => normalize(v) === normalize(answer))) {
-            // Correct
-            if (currentQuestionIndex < QUESTIONS.length - 1) {
-                setCurrentQuestionIndex(prev => prev + 1)
-                setAnswer('')
-                setError('')
+            if (validAnswers.includes(encodedAnswer)) {
+                // Correct
+                if (currentQuestionIndex < QUESTIONS.length - 1) {
+                    setCurrentQuestionIndex(prev => prev + 1)
+                    setAnswer('')
+                    setError('')
+                } else {
+                    handleSuccess()
+                }
             } else {
-                handleSuccess()
+                triggerError()
             }
         } else {
             triggerError()
@@ -110,7 +118,7 @@ export const Auth = () => {
         setTimeout(() => {
             setIsVerifying(false)
             setIsAuthenticated(true)
-            localStorage.setItem('girlfriend_verified', 'true')
+            localStorage.setItem(AUTH_TOKEN_KEY, AUTH_TOKEN_VALUE)
             setTimeout(() => {
                 navigate('/story')
             }, 3000)

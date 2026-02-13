@@ -5,27 +5,63 @@ export const CONFIG = {
     footballTeam: "Manchester United",
     oriki: "Ishola",
     validAnswers: {
-        firstName: ["oluwakanyinsola", "kanyinsola"],
-        middleName: ["prisca"],
-        lastName: ["leigh"],
-        favoriteColor: ["blue"],
-        footballTeam: ["manchester united", "man u", "man utd", "united"],
-        manager: ["michael carrick", "carrick", "michael"],
-        oriki: ["ishola"],
-        sayLove: ["i love you", "i love you too", "i love u", "love you"],
+        firstName: [
+            "b2x1d2FrYW55aW5zb2xh",
+            "a2FueWluc29sYQ=="
+        ],
+        middleName: [
+            "cHJpc2Nh"
+        ],
+        lastName: [
+            "bGVpZ2g="
+        ],
+        favoriteColor: [
+            "Ymx1ZQ=="
+        ],
+        footballTeam: [
+            "bWFuY2hlc3RlciB1bml0ZWQ=",
+            "bWFuIHU=",
+            "bWFuIHV0ZA==",
+            "dW5pdGVk"
+        ],
+        manager: [
+            "bWljaGFlbCBjYXJyaWNr",
+            "Y2Fycmljaw==",
+            "bWljaGFlbA=="
+        ],
+        oriki: [
+            "aXNob2xh"
+        ],
+        sayLove: [
+            "aSBsb3ZlIHlvdQ==",
+            "aSBsb3ZlIHlvdSB0b28=",
+            "aSBsb3ZlIHU=",
+            "bG92ZSB5b3U="
+        ],
         // loveNote validation is length-based in Auth.tsx
-        anniversaryDate: ["2024-04-20"],
-        favoriteMusician: ["jon bellion"],
-        favoriteFood: ["macaroni"],
+        anniversaryDate: [
+            "MjAyNC0wNC0yMA=="
+        ],
+        favoriteMusician: [
+            "am9uIGJlbGxpb24="
+        ],
+        favoriteFood: [
+            "bWFjYXJvbmk="
+        ],
         // jciCreed handled separately via CONFIG.creedAnswers
     },
     creedAnswers: [
-        "faith", "god",
-        "brotherhood", "sovereignty",
-        "economic justice", "free enterprise",
-        "government", "men",
-        "personality",
-        "service", "humanity"
+        "ZmFpdGg=",
+        "Z29k",
+        "YnJvdGhlcmhvb2Q=",
+        "c292ZXJlaWdudHk=",
+        "ZWNvbm9taWMganVzdGljZQ==",
+        "ZnJlZSBlbnRlcnByaXNl",
+        "Z292ZXJubWVudA==",
+        "bWVu",
+        "cGVyc29uYWxpdHk=",
+        "c2VydmljZQ==",
+        "aHVtYW5pdHk="
     ],
     music: {
         background: "/assets/music/Run_-_Jon_Bellion_KLICKAUD.mp3",
@@ -41,7 +77,7 @@ export const CONFIG = {
             "Are you sure you're the one? 🤔",
             "Don't make me call the police 👮‍♀️",
             "Baby... focus! 😂",
-            "Who are you and what have you done with Kanyinsola? 😤",
+            "Who are you and what have you done with my baby? 😤",
             "Incorrect! My heart is locked 🔒",
             "Resetting relationship in 3... 2... just kidding 😂"
         ],
